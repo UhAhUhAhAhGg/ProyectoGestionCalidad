@@ -1,0 +1,17 @@
+# Dependencias mínimas para ejecutar las pruebas unitarias (sin Docker ni PostgreSQL).
+# Instalar con:  pip install -r pruebas_unitarias/requirements-test.txt
+
+# Framework de pruebas
+pytest>=7.4,<9
+pytest-django>=4.7
+
+# Backend que se está probando (mismas versiones mayores que el proyecto)
+Django>=4.2,<5.0
+djangorestframework>=3.14,<3.16
+djangorestframework-simplejwt>=5.3,<5.4
+requests>=2.31
+
+# Usadas por events/services.py (QR y PDF de tickets)
+qrcode[pil]>=7.4
+Pillow>=10.2
+reportlab>=4.0
