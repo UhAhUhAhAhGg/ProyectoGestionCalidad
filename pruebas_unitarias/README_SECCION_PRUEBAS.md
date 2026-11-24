@@ -82,7 +82,11 @@ pip install -r pruebas_unitarias/requirements-test.txt
 pytest
 ```
 
-Resultado esperado: **`75 passed`** (todas en verde en teoría 75). No requiere Docker, PostgreSQL ni variables de entorno.
+Resultado esperado actualmente: **`15 passed`**. El total de 75 corresponde a la meta del equipo cuando se hayan integrado las pruebas de todos los integrantes. No requiere Docker, PostgreSQL ni variables de entorno.
+
+## Pipeline de Jenkins
+
+El archivo [`Jenkinsfile`](../Jenkinsfile) ejecuta estas pruebas, publica el reporte JUnit, construye las imágenes Docker y despliega la aplicación en DEV/localhost mediante Docker Compose. Consulta la [guía de configuración y evidencias de Jenkins](../docs/jenkins/README.md).
 
 ## 5. Distribución 
 
