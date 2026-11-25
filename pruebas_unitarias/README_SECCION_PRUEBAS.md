@@ -26,6 +26,16 @@ de negocio (validaciones, permisos, reglas de expiración, control de la cola vi
 | `service-auth/users/models.py` | `UserProfile.full_name` | Devuelve el nombre completo concatenando nombre y apellido. |
 | `service-auth/users/models.py` | `UserManager.create_user()` | Crea usuarios y rechaza emails vacíos. |
 
+### Integrante 3 — `service-queue`: control de usuarios activos de la cola virtual
+| Archivo | Clase / método | Objetivo |
+|---|---|---|
+| `service-queue/queue_app/active_users.py` | `register_user_activity()` | Registra o actualiza la actividad de un usuario en la cola de un evento (sin duplicarlo y sin mezclar eventos). |
+| `service-queue/queue_app/active_users.py` | `remove_user_activity()` | Quita a un usuario de la cola (p. ej. al completar la compra); no falla si el usuario no existe. |
+| `service-queue/queue_app/active_users.py` | `get_active_users_count()` | Devuelve la cantidad de usuarios activos de un evento, descartando antes a los inactivos por más de 2 minutos. |
+| `service-queue/queue_app/active_users.py` | `is_user_active()` | Indica si un usuario está activo en un evento; retorna `False` si el evento no existe o si el usuario expiró. |
+| `service-queue/queue_app/active_users.py` | `clear_event_activity()` | Vacía la cola de un evento (p. ej. cuando el promotor lo reconfigura) sin afectar a otros eventos. |
+| `service-queue/queue_app/models.py` | `SeatReservation.is_expired` | Indica si una reserva temporal de asiento expiró: solo si sigue `active` y ya pasó su `expires_at`. |
+
 
 > *(Si el equipo es de 5 integrantes, agregar la tabla del Integrante 6: `service-events/events/services.py` y
 > `models.py` — generación de códigos/QR, `Event.is_upcoming`, `TicketType.configured_seats`,
@@ -89,4 +99,5 @@ Resultado esperado: **`75 passed`** (todas en verde en teoría 75). No requiere 
 | Integrante | Archivo | Pruebas |
 |---|---|:---:|
 | **[Ariana Kremsberger]** | `pruebas_unitarias/test_integrante_1_auth_serializers.py` | 15 |
+| **[Luciana]** | `pruebas_unitarias/test_Luciana_3_queue_active_users.py` | 15 |
 
