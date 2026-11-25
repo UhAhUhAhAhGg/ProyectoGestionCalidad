@@ -82,7 +82,7 @@ pip install -r pruebas_unitarias/requirements-test.txt
 pytest
 ```
 
-Resultado esperado actualmente: **`15 passed`**. El total de 75 corresponde a la meta del equipo cuando se hayan integrado las pruebas de todos los integrantes. No requiere Docker, PostgreSQL ni variables de entorno.
+Resultado esperado actualmente: **`30 passed`**. El total de 75 corresponde a la meta del equipo cuando se hayan integrado las pruebas de todos los integrantes. No requiere Docker, PostgreSQL ni variables de entorno.
 
 ## Pipeline de Jenkins
 
@@ -92,5 +92,6 @@ El archivo [`Jenkinsfile`](../Jenkinsfile) ejecuta estas pruebas, publica el rep
 
 | Integrante | Archivo | Pruebas |
 |---|---|:---:|
-| **[Ariana Kremsberger]** | `pruebas_unitarias/test_integrante_1_auth_serializers.py` | 15 |
+| **Ariana Kremsberger** | `pruebas_unitarias/test_Ariana_1_auth_serializers.py` | 15 |
+| **Marcia** | `pruebas_unitarias/test_Marcia_2_events_queue.py` | 15 |
 
